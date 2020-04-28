@@ -1,0 +1,23 @@
+{
+  "name": "terraform-aws-jwt-authorizer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "authorize.js",
+  "scripts": {
+    "build": "parcel build authorize.js --target node --bundle-node-modules --no-source-maps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stuartizon/terraform-aws-jwt-authorizer.git"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "jwks-rsa": "^1.8.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "engines": {
+    "node": ">=12"
+  }
+}

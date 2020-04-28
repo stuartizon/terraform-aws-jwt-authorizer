@@ -1,0 +1,37 @@
+data "aws_iam_policy_document" "jwt_authorizer" {
+  statement {
+    actions = ["sts:AssumeRole"]
+    principals {
+      type        = "Service"
+      identifiers = ["lambda.amazonaws.com"]
+    }
+  }
+}
+
+resource "aws_iam_role" "jwt_authorizer" {
+  name               = var.name
+  assume_role_policy = data.aws_iam_policy_document.jwt_authorizer.json
+}
+
+data "archive_file" "jwt_authorizer" {
+  type        = "zip"
+  source_file = "${path.module}/authorize.js"
+  output_path = "${path.module}/.terraform/tmp/authorize.zip"
+}
+
+resource "aws_lambda_function" "jwt_authorizer" {
+  function_name    = var.name
+  filename         = data.archive_file.jwt_authorizer.output_path
+  source_code_hash = data.archive_file.jwt_authorizer.output_base64sha256
+  role             = aws_iam_role.jwt_authorizer.arn
+  handler          = "authorize.handler"
+  runtime          = "nodejs12.x"
+
+  environment {
+    variables = {
+      JWKS_URI     = var.jwks_uri
+      TOKEN_ISSUER = var.token_issuer
+      AUDIENCE     = var.audience
+    }
+  }
+}
