@@ -31,7 +31,7 @@
       "release": true,
       "preRelease": true,
       "assets": [
-        "dist/authorize.zip"
+        "dist/authorize.js"
       ]
     }
   }

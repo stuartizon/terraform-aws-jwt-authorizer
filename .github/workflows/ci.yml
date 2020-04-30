@@ -16,7 +16,6 @@ jobs:
     - name: Build
       run: |
         npm run build
-        zip --junk-paths dist/authorize dist/authorize.js
     - name: Release
       run: |
         git config user.name GitHub Actions
