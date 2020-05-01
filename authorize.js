@@ -37,7 +37,7 @@ function generatePolicy(methodArn) {
   };
 }
 
-export async function authorize(event) {
+export async function handler(event) {
   console.log(event);
 
   try {
