@@ -1,16 +1,7 @@
-resource "null_resource" "build" {
-  provisioner "local-exec" {
-    command     = "npm install && npm run build"
-    working_dir = path.module
-  }
-}
-
 data "archive_file" "jwt_authorizer" {
   type        = "zip"
   source_file = "${path.module}/dist/authorize.js"
   output_path = "${path.module}/dist/authorize.zip"
-
-  depends_on = [null_resource.build]
 }
 
 data "aws_iam_policy_document" "jwt_authorizer" {
