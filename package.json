@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "build": "parcel build authorize.js --target node --bundle-node-modules --no-source-maps",
+    "dist:add": "git add dist",
     "release": "release-it --ci"
   },
   "repository": {
@@ -24,7 +25,10 @@
   "engines": {
     "node": ">=12"
   },
-  "pre-commit": "build",
+  "pre-commit": [
+    "build",
+    "dist:add"
+  ],
   "release-it": {
     "npm": {
       "publish": false
