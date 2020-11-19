@@ -1,6 +1,6 @@
 {
   "name": "terraform-aws-jwt-authorizer",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Terraform module which creates a custom lambda authorizer for use with API gateway",
   "main": "authorize.js",
   "private": true,
