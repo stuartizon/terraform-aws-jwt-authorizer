@@ -33,7 +33,7 @@ module "authorizer" {
 |------|-------------|
 | invoke_arn | The ARN to be used for invoking the lambda function from API Gateway |
 
-# Development
+## Development
 Since the way that Terraform modules are published to the Terraform Registry works using git and release tags, the compiled javascript file is checked into the repository. There is a precommit hook to automatically trigger javascript compilation. 
 
 The version number is also present, naturally, in the package.json. Using `release-it` as part of the CI, this version is incremented and a new tag created on every git push.
