@@ -21,12 +21,12 @@ module "authorizer" {
 ```
 
 ## Variables
-| Name | Type | Description | Default |
-|------|------|-------------|---------|
-| name | `string` | The name of the authorization lambda function to create | |
-| jwks_uri | `string` | The URL of the JWKS endpoint (to get the public keys used to sign the JWT) | |
-| token_issuer | `string` | The JWT issuing authority (to check the issuer inside the token) | |
-| audience | `string` | The audience identifier value of the API | |
+| Name | Type | Description |
+|------|------|-------------|
+| name | `string` | The name of the authorization lambda function to create |
+| jwks_uri | `string` | The URL of the JWKS endpoint (to get the public keys used to sign the JWT) |
+| token_issuer | `string` | The JWT issuing authority (to check the issuer inside the token) |
+| audience | `string` | The audience identifier value of the API |
 
 ## Outputs
 | Name | Description |
